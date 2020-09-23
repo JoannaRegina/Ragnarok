@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Poppins&display=swap');
+
+:root {
+    font-size: 16px;
+
+    --color-background: #F5F7FE;
+    --color-primary: #6441A4;
+    --color-secundary: #7289DA;
+    --color-secundary-dark: #6073b9;
+    --color-text-complement: #969ca1;
+    --color-text-detail: #47525E;
+    --color-text-base:#434f5c;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-text-link: #00A6FF;
+    --color-hr-line:#D3D3D3;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root{
+    height: 100%;
+}
+
+body{
+    background-color: var(--color-background)
+}
+
+body, input, button, textarea, select, a, span {
+    font: 500 16px Poppins;
+    color: var(--color-text-base);
+}
+
+
