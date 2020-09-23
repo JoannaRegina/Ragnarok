@@ -13,17 +13,35 @@ A ideia da solução é que haja uma integração entre às duas plataformas, we
 
 ## 🎲 Instruções para o uso
 É necessário ter instalado em sua máquina as seguintes ferramentas: <br/>
-[Node.js](https://nodejs.org/en/) e [MySQL](https://www.mysql.com) - servidor; <br/>
+[Node.js](https://nodejs.org/en/) e [MySQL](https://www.mysql.com) - Servidor; <br/>
 [ReactJs](https://pt-br.reactjs.org) - Web Site; <br/>
 [Expo-cli](https://docs.expo.io/workflow/expo-cli/) - App mobile; <br/>
 Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/).
 
 ### Rodando o Back End (servidor)
+- executar o backup do banco
+- abrir o projeto no editor
+- editar o arquivo de autenticação com os dados do seu banco
+- rodar o comando 'node index.js'
 
 ### Rodando o Web Site
+- abrir o projeto no editor de texto, ou no prompt de comando do seu sistema operacional
+- rodar o comando 'yarn start'
 
-### Rodando o app mobile
+### Rodando o App mobile
+- abrir o projeto no prompt de comando (certifique-se de estar em mode administrador)
+- rodar o comando expo start
+- aguardar abrir no browser
+- selecionnar a opção 'tunnel'
+o projeto mobile pode ser aberto no browser do navegador, em um emulador, ou em seu próprio celular. 
+Cada um possui suas limitações, portanto, o mais indicado é que seja aberto em seu próprio dispositivo.
 
+  ##### Rodar no seu sipositivo
+  - instalar o app 'Expo' em sua loja de aplicativos - 
+  [Android - playStore](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR)
+  [ios - AppStore](https://apps.apple.com/br/app/expo-client/id982107779).
+  - scannear o código no browser
+ 
 
 ## 🛠️ Tecnologias
 
