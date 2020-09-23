@@ -12,9 +12,11 @@ com disponibilidade do produto selecionado.
 A ideia da solução é que haja uma integração entre às duas plataformas, web e mobile, e tenha interação com Banco de Dados.
 
 ## 🎲 Instruções para o uso
-É necessário ter instalado em sua máquina as seguintes ferramentas:
-[Node.js](https://nodejs.org/en/) e MySQL(https://www.mysql.com).
-Para trabalhar com o código, é ideal um editor de texto [VSCode](https://code.visualstudio.com/)
+É necessário ter instalado em sua máquina as seguintes ferramentas: <br/>
+[Node.js](https://nodejs.org/en/) e MySQL(https://www.mysql.com) - servidor;
+[ReactJs](https://pt-br.reactjs.org) - Web Site;
+[Expo-cli](https://docs.expo.io/workflow/expo-cli/) - App mobile
+Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/)
 
 ### Rodando o Back End (servidor)
 
