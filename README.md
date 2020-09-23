@@ -36,5 +36,5 @@ Para a construção desse projeto, foram utilizadas as seguintes ferramentas:
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [MySQL](https://www.mysql.com)
 
-# Autor
+# 👧🏻 Autor
 Desenvolvido por <b>Joanna Regina<b>, 2020
