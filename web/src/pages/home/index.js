@@ -214,6 +214,7 @@ render() {
                             </div>
                         </header>
 
+
                         <main id="container-games">
                         {/* será exibido uma mensagem de carregamento enquanto a requisição estiver sendo feita */}
                         {/* uma mensagem de erro irá informar o usuário de que não foi possível fazer a reqisição */}
