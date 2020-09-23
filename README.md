@@ -13,10 +13,10 @@ A ideia da solução é que haja uma integração entre às duas plataformas, we
 
 ## 🎲 Instruções para o uso
 É necessário ter instalado em sua máquina as seguintes ferramentas: <br/>
-[Node.js](https://nodejs.org/en/) e MySQL(https://www.mysql.com) - servidor;
-[ReactJs](https://pt-br.reactjs.org) - Web Site;
-[Expo-cli](https://docs.expo.io/workflow/expo-cli/) - App mobile
-Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/)
+[Node.js](https://nodejs.org/en/) e [MySQL](https://www.mysql.com) - servidor; <br/>
+[ReactJs](https://pt-br.reactjs.org) - Web Site; <br/>
+[Expo-cli](https://docs.expo.io/workflow/expo-cli/) - App mobile; <br/>
+Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/).
 
 ### Rodando o Back End (servidor)
 
