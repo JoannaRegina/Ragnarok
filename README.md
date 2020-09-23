@@ -32,6 +32,7 @@ Para a construção desse projeto, foram utilizadas as seguintes ferramentas:
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
+- [Expo](https://docs.expo.io)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [MySQL](https://www.mysql.com)
 
