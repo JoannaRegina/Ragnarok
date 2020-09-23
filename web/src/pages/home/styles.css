@@ -136,6 +136,8 @@ header{
 
 #game-item:hover{
     cursor: pointer;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2); 
+    transition: 0.4s;
 }
 
 #game-item img{
@@ -182,3 +184,11 @@ header{
 
 }
 
+.row span {
+    color: var(--color-text-link);
+    margin-top: 6px;
+    margin-left: 4px;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
