@@ -7,7 +7,12 @@ import fonts from './fonts';
 export const Container = styled.ScrollView `
     flex: 1;
     background-color: ${colors.color_background};
-    border-width: 1px;
+    /* border-width: 1px; */
+`;
+
+export const Main = styled.View `
+    background-color: ${colors.color_background};
+    padding: 8px 12px;
 `;
 
 export const Base_container = styled.View `
