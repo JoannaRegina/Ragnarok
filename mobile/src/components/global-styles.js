@@ -19,5 +19,5 @@ export const Base_container = styled.View `
     padding: 10px 10px;
     border-radius: 10px;
     margin-top:20px;
-    max-height:550px;
+    max-height:600px;
 `

@@ -28,15 +28,47 @@ import IconPc from '../../assets/images/pc.png'
 import IconSwitch from '../../assets/images/switch.jpg'
 import Spider from '../../assets/images/spider-man.png'
 
+import api from '../../services/api'
+
 export default class HomePage extends Component {
     constructor() {
         super()
         this.state = {
-
+            games: [],
+            platform: '',
+            error: ''
         }
     }
 
+    componentDidMount = () => {
+        this.loadGames()
+    }
+
+    componentDidUpdate = () => {
+
+    }
+
+    loadGames = async () => {
+        await api.get('/games')
+            .then(response => {
+                console.log(response.data)
+                this.setState({ games: response.data })
+            })
+    }
+
+    loadGamesFiltered = async () => {
+
+    }
+
+    addZeros = () => {
+
+    }
+
     render() {
+        console.log(this.state.games)
+
+        const { games } = this.state
+
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <Container>
@@ -57,7 +89,10 @@ export default class HomePage extends Component {
 
                     <Main>
                         <Text style={{ top: 12, fontSize: 15 }}>
-                            Deslize para ver mais
+                            Plataformas
+                        </Text>
+                        <Text style={{ top: 12, fontSize: 15 }}>
+                            Deslize para o lado para ver mais
                         </Text>
                         <Base_container>
                             <Horizontal_Scroll horizontal={true} centerContent={true} showsHorizontalScrollIndicator={false}>
@@ -95,20 +130,25 @@ export default class HomePage extends Component {
                             </Horizontal_Scroll>
                         </Base_container>
 
-                        <Base_container>
-                            {/* imagem */}
-                            <Image
-                                style={{maxHeight:360, width:'100%'}}    
-                                source={Spider}
-                            />
+                        {games.map(game => (
+                            <Base_container key={game.id}>
+                                {game.id && 
+                                    <Image
+                                        style={{ maxHeight: 360, width: '100%' }}
+                                        source={{uri: game.imagem}}
+                                    />
+                                }
+                                
+                                <Game_Tittle> {game.nome} </Game_Tittle>
+                                <Game_Platforms> {game.plataformas} </Game_Platforms>
+                                <Game_Price> {game.valor} </Game_Price>
 
-                            <Game_Tittle> Spider-man </Game_Tittle>
-                            <Game_Platforms> PS3/PS4/PC </Game_Platforms>
-                            <Game_Price> R$160,00 </Game_Price>
-                            <Button_Details>
-                                <Text_Button>Mais detalhes</Text_Button>
-                            </Button_Details>
-                        </Base_container>
+                                <Button_Details onPress={() => this.loadGames()}>
+                                    <Text_Button>Mais detalhes</Text_Button>
+                                </Button_Details>
+
+                            </Base_container>
+                        ))}
                     </Main>
                 </Container>
             </SafeAreaView>
