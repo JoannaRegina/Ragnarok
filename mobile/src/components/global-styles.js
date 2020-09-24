@@ -11,7 +11,7 @@ export const Container = styled.ScrollView `
 
 export const Main = styled.View `
     background-color: ${colors.color_background};
-    padding: 8px 12px;
+    padding: 8px 13px;
 `;
 
 export const Base_container = styled.View `

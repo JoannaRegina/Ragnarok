@@ -9,7 +9,9 @@ import {
   Poppins_500Medium,
 } from '@expo-google-fonts/poppins'
 
-import HomePage from './src/pages/home'
+
+import Routes from './src/routes'
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,10 +22,11 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
+
     return (
       <React.Fragment>
         <StatusBar backgroundColor={colors.color_primary_darker} style={'light'} />
-        <HomePage />
+        <Routes />
       </React.Fragment>
     );
   }

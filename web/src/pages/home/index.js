@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react'
+import React, { Component } from 'react'
 import api from '../../services/api'
 import './styles.css'
 
@@ -12,46 +12,7 @@ import IconWiiu from '../../assets/images/wiiu-platform.png'
 
 import { Link } from 'react-router-dom'
 
-// export default function Home() {
 export default class Home extends Component {
-
-    // const [games, setGames] = useState([])
-    // const [platform, setPlatform] = useState('Todas')
-    // const [error, setError] = useState(false)
-
-    // useEffect(() => {
-    //     if (platform == 'Todas') {
-    //         loadGames()
-    //     } else {
-    //         loadGamesFiltered()
-    //     }
-    // }, [])
-
-    // const loadGames = async () => {
-    //     await api.get('/games').then(response => {
-    //         setGames(response.data)
-    //         console.log(response.data)
-    //     }).catch(error => {
-    //         if (!error.response) {
-    //             setError(true)
-    //         } else {
-    //             this.errorStatus = error.response.data.message;
-    //         }
-    //     })
-
-    // }
-
-    // const loadGamesFiltered = async (platform) => {
-    //     await api.get(`/games/platform/${platform}`).then(response => {
-    //         console.log(response.data)
-    //         setPlatform(platform)
-    //         setGames(response.data)
-
-    //     }).catch(
-
-    //     )
-
-    // }
 
     constructor() {
         super()

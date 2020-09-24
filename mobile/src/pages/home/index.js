@@ -20,18 +20,21 @@ import {
     SubTittle
 } from './styles';
 
-import IconSearch from 'react-native-vector-icons/Ionicons'
 
+// Icons
+import IconSearch from 'react-native-vector-icons/Ionicons'
 import IconPlaystation from '../../assets/images/playstation.png'
 import IconXbox from '../../assets/images/xbox.png'
 import IconWiiu from '../../assets/images/wiiu.png'
 import IconPc from '../../assets/images/pc.png'
 import IconSwitch from '../../assets/images/switch.jpg'
-import Spider from '../../assets/images/spider-man.png'
 
+// utils
 import api from '../../services/api'
 import fonts from '../../components/fonts';
 import colors from '../../components/colors';
+
+
 
 export default class HomePage extends Component {
     constructor() {
@@ -39,7 +42,7 @@ export default class HomePage extends Component {
         this.state = {
             games: [],
             platform: 'Todas',
-            error: false
+            error: false,
         }
     }
 
@@ -92,11 +95,18 @@ export default class HomePage extends Component {
         return addZeros.toString().replace(".", ",")
     }
 
-     // Mudando a cor do botão, ao selecionar uma plataforma
+    // Mudando a cor do botão, ao selecionar uma plataforma
     selected = (platform_selected) => {
         const { platform } = this.state
 
         return platform_selected === platform ? '#c0adc9' : colors.color_background
+    }
+
+    nextPage = (id) => {
+        this.props.navigation.navigate('GameDetails', {
+			screen: 'FormUserAddress',
+			params: { id },
+		});
     }
 
 
@@ -115,7 +125,9 @@ export default class HomePage extends Component {
                         </Tittle_Header>
 
                         <Search_Container>
-                            <Search_Input placeholder="Procure por um jogo" />
+                            <Search_Input
+                                placeholder="Procure por um jogo"
+                            />
 
                             <Icon_Container>
                                 <IconSearch name="md-search" size={30} color="#fff" />
@@ -195,7 +207,7 @@ export default class HomePage extends Component {
                                 <Game_Platforms> {game.plataformas} </Game_Platforms>
                                 <Game_Price> R${this.addZeros(game.valor)} </Game_Price>
 
-                                <Button_Details onPress={() => this.loadGames()}>
+                                <Button_Details onPress={() => this.nextPage(game.id)}>
                                     <Text_Button>Mais detalhes</Text_Button>
                                 </Button_Details>
 
