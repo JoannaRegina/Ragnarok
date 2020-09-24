@@ -7,7 +7,6 @@ import fonts from './fonts';
 export const Container = styled.ScrollView `
     flex: 1;
     background-color: ${colors.color_background};
-    /* border-width: 1px; */
 `;
 
 export const Main = styled.View `
@@ -16,9 +15,9 @@ export const Main = styled.View `
 `;
 
 export const Base_container = styled.View `
-    background-color:${colors.color_link};
+    background-color:${colors.color_white};
     padding: 10px 10px;
     border-radius: 10px;
     margin-top:20px;
-    height:80px;
+    max-height:550px;
 `

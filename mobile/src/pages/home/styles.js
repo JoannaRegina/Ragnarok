@@ -53,3 +53,72 @@ export const Search_Input = styled.TextInput`
     padding-left:8px;
     background-color:${colors.color_white};
 `
+
+// plataformas
+export const Item_Platform = styled.TouchableOpacity`
+    width:70px;
+    height:70px;
+
+    background-color:${colors.color_background};
+    border-radius:50px;
+    border-width:0.5px;
+    border-color:#d6d6d6;
+
+    justify-content:center;
+    align-items:center;
+
+    margin-right:10px;
+
+`
+
+export const Icon_Platform = styled.Image`
+    height:30px;
+    width:30px;
+`
+
+export const Horizontal_Scroll = styled.ScrollView`
+    width:100%;
+    flex-direction:row;
+`
+
+// card games
+export const Game_Tittle = styled.Text`
+    font-family:${fonts.poppins_medium};
+    color: ${colors.color_text};
+
+    font-size:18px;
+    margin-top:5px;
+`
+
+
+export const Game_Platforms = styled.Text`
+    font-family:${fonts.poppins_regular};
+    color: ${colors.color_text_base};
+
+    font-size:14px;
+`
+
+export const Game_Price = styled.Text`
+    font-family:${fonts.poppins_medium};
+    color: ${colors.color_primary};
+
+    font-size:23px;
+    margin-top:10px;
+`
+
+export const Button_Details = styled.TouchableOpacity`
+    background-color:${colors.color_secundary};
+    width:100%;
+    height:40px;
+
+    margin-top:5px;
+    align-items:center;
+    justify-content:center;
+`
+
+export const Text_Button = styled.Text `
+    font-family:${fonts.poppins_medium};
+    color: ${colors.color_white};
+
+    font-size:18px;
+`
