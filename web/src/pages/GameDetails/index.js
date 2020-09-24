@@ -11,12 +11,12 @@ import Header from '../header'
 import api from '../../services/api'
 
 // export default function GameDetails() {
-export default class GameDetails extends Component{
+export default class GameDetails extends Component {
 
 
     // const [game, setGame] = useState([])
 
-    constructor(){
+    constructor() {
         super()
         this.state = {
             game: []
@@ -35,18 +35,19 @@ export default class GameDetails extends Component{
 
     // }, [])
 
-    componentDidMount(){
+    componentDidMount() {
         this.loadGameInfo()
     }
 
 
-    async loadGameInfo(){
+    async loadGameInfo() {
 
         const { id } = this.props.match.params
 
         const response = await api.get(`/games/id/${id}`)
-        this.setState({game: response.data})
-        console.log(response.data) 
+        this.setState({ game: response.data })
+        console.log(response.data)
+        console.log(response.data.lojas)
     }
 
     addZeros = (num) => {
@@ -56,7 +57,7 @@ export default class GameDetails extends Component{
     }
 
 
-    render(props){
+    render(props) {
         const { game } = this.state
         console.log(game)
 
@@ -126,27 +127,34 @@ export default class GameDetails extends Component{
 
                                 <main>
                                     <div id="stores-address">
-                                        <ul>
-                                            <li className="row">
-                                                <MdPlace color="#c95050" size={30} />
-                                                <a href="#">
-                                                    <h4>Loja Tamboré</h4>
-                                                </a>
-                                            </li>
-                                            <li id="address">
-                                                Endereço: Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030
-                                        </li>
+                                        {game.map(info => (
+                                            <ul>
+                                                <li key={info.id} className="row">
+                                                    <MdPlace color="#c95050" size={30} />
+                                                    <a href="#">
+                                                        <h4>{info.lojas.replace("/", " | ")}</h4>
+                                                    </a>
+                                                </li>
 
-                                            <li className="row">
+                                                <li id="address">
+                                                    Endereço: Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030
+                                                </li>
+
+
+                                                {/* <li className="row"> 
                                                 <MdPlace color="#c95050" size={30} />
                                                 <a href="#">
                                                     <h4>Loja Tamboré</h4>
                                                 </a>
                                             </li>
+
                                             <li id="address">
                                                 Endereço: Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030
-                                        </li>
-                                        </ul>
+                                            </li>
+                                            */}
+                                            </ul>
+                                        ))}
+
                                     </div>
 
                                     <div id="map">

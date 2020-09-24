@@ -11,7 +11,6 @@ export const Header = styled.View`
     background-color:${colors.color_primary_darker};
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    /* padding-top:25%; */
     padding: 25% 14px;
 `
 
@@ -121,4 +120,13 @@ export const Text_Button = styled.Text `
     color: ${colors.color_white};
 
     font-size:18px;
+`
+
+export const SubTittle = styled.Text `
+    font-family:${fonts.poppins_medium};
+    color: ${colors.color_text};
+
+    font-size:16px;
+    top:20px;
+    margin-bottom:2%;
 `

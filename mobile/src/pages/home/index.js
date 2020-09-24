@@ -16,7 +16,8 @@ import {
     Game_Platforms,
     Game_Price,
     Button_Details,
-    Text_Button
+    Text_Button,
+    SubTittle
 } from './styles';
 
 import IconSearch from 'react-native-vector-icons/Ionicons'
@@ -29,23 +30,28 @@ import IconSwitch from '../../assets/images/switch.jpg'
 import Spider from '../../assets/images/spider-man.png'
 
 import api from '../../services/api'
+import fonts from '../../components/fonts';
+import colors from '../../components/colors';
 
 export default class HomePage extends Component {
     constructor() {
         super()
         this.state = {
             games: [],
-            platform: '',
-            error: ''
+            platform: 'Todas',
+            error: false
         }
     }
 
     componentDidMount = () => {
         this.loadGames()
+
     }
 
     componentDidUpdate = () => {
-
+        if (this.state.platform !== 'Todas') {
+            this.loadGamesFiltered()
+        }
     }
 
     loadGames = async () => {
@@ -53,21 +59,52 @@ export default class HomePage extends Component {
             .then(response => {
                 console.log(response.data)
                 this.setState({ games: response.data })
+            }).catch(error => {
+                if (!error.response) {
+                    this.setState({ error: true })
+                } else {
+                    this.errorStatus = error.response.data.message;
+                }
             })
     }
 
-    loadGamesFiltered = async () => {
+    loadGamesFiltered = async (platform) => {
 
+        // Se a plataforma clicada já estiver selecionada,
+        // ela voltará ao normal
+        if (platform == this.state.platform) {
+            this.setState({ platform: 'Todas' })
+            return this.loadGames()
+        } else {
+
+            await api.get(`/games/platform/${platform}`)
+                .then(response => {
+                    this.setState({ platform: platform, games: response.data })
+                }).catch(
+                    console.log(error.response.data.message)
+                )
+        }
     }
 
-    addZeros = () => {
+    addZeros = (num) => {
+        let addZeros = num.toFixed(Math.max(((num + '').split(".")[1] || "").length, 2));
 
+        return addZeros.toString().replace(".", ",")
     }
+
+     // Mudando a cor do botão, ao selecionar uma plataforma
+    selected = (platform_selected) => {
+        const { platform } = this.state
+
+        return platform_selected === platform ? '#c0adc9' : colors.color_background
+    }
+
 
     render() {
-        console.log(this.state.games)
+        console.log(this.state.platform)
 
-        const { games } = this.state
+        const { games, platform } = this.state
+
 
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -88,40 +125,53 @@ export default class HomePage extends Component {
                     </Header>
 
                     <Main>
-                        <Text style={{ top: 12, fontSize: 15 }}>
-                            Plataformas
-                        </Text>
-                        <Text style={{ top: 12, fontSize: 15 }}>
-                            Deslize para o lado para ver mais
-                        </Text>
                         <Base_container>
+                            <Text style={{ fontSize: 14, marginBottom: 10, fontFamily: `${fonts.poppins_regular}` }}>
+                                Deslize para o lado para ver mais
+                        </Text>
                             <Horizontal_Scroll horizontal={true} centerContent={true} showsHorizontalScrollIndicator={false}>
-                                <Item_Platform style={styles.shadow}>
+
+                                <Item_Platform
+                                    style={{ backgroundColor: this.selected('ps') }}
+                                    onPress={() => this.loadGamesFiltered('ps')}
+                                >
                                     <Icon_Platform
                                         source={IconPlaystation}
                                     />
                                 </Item_Platform>
 
-                                <Item_Platform style={styles.shadow}>
+                                <Item_Platform
+                                    style={{ backgroundColor: this.selected('xbox') }}
+                                    onPress={() => this.loadGamesFiltered('xbox')}
+                                >
                                     <Icon_Platform
                                         source={IconXbox}
                                     />
                                 </Item_Platform>
 
-                                <Item_Platform style={styles.shadow}>
+                                <Item_Platform
+                                    style={{ backgroundColor: this.selected('pc') }}
+                                    onPress={() => this.loadGamesFiltered('pc')}
+                                >
                                     <Icon_Platform
                                         style={{ height: 40, width: 40 }}
                                         source={IconPc}
                                     />
                                 </Item_Platform>
 
-                                <Item_Platform style={styles.shadow}>
+                                <Item_Platform
+                                    style={{ backgroundColor: this.selected('switch') }}
+                                    onPress={() => this.loadGamesFiltered('switch')}
+                                >
                                     <Icon_Platform
                                         source={IconSwitch}
                                     />
                                 </Item_Platform>
 
-                                <Item_Platform style={styles.shadow}>
+                                <Item_Platform
+                                    style={{ backgroundColor: this.selected('wiiu') }}
+                                    onPress={() => this.loadGamesFiltered('wiiu')}
+                                >
                                     <Icon_Platform
                                         source={IconWiiu}
                                     />
@@ -130,18 +180,20 @@ export default class HomePage extends Component {
                             </Horizontal_Scroll>
                         </Base_container>
 
+                        <SubTittle>
+                            Plataforma selecionada: <Text style={{ color: '#30c949' }} >{platform} </Text>
+                        </SubTittle>
+
                         {games.map(game => (
                             <Base_container key={game.id}>
-                                {game.id && 
-                                    <Image
-                                        style={{ maxHeight: 360, width: '100%' }}
-                                        source={{uri: game.imagem}}
-                                    />
-                                }
-                                
+                                <Image
+                                    source={{ uri: game.imagem.trim() }}
+                                    style={{ width: '100%', height: 400 }}
+                                />
+
                                 <Game_Tittle> {game.nome} </Game_Tittle>
                                 <Game_Platforms> {game.plataformas} </Game_Platforms>
-                                <Game_Price> {game.valor} </Game_Price>
+                                <Game_Price> R${this.addZeros(game.valor)} </Game_Price>
 
                                 <Button_Details onPress={() => this.loadGames()}>
                                     <Text_Button>Mais detalhes</Text_Button>
@@ -150,6 +202,7 @@ export default class HomePage extends Component {
                             </Base_container>
                         ))}
                     </Main>
+
                 </Container>
             </SafeAreaView>
         )
