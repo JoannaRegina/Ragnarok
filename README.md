@@ -36,7 +36,7 @@ Segue a explicação de como isso pode ser feito:
 
 - conecte seu smartphone ao computador via USB
 (certifique-se de que a opção de depuração USB está ativada, em seu smartphone)
-- [Siga este tutorial](https://medium.com/@neerajmoudgil/how-to-test-localhost-node-apis-on-android-device-253fcdd32c18)
+- [Siga este tutorial](https://medium.com/@neerajmoudgil/how-to-test-localhost-node-apis-on-android-device-253fcdd32c18) para dar acesso ao localhost ao seu smathphone (lembre-se de que a api está rodando em "localhost:3333")
 - abrir o projeto no prompt de comando (certifique-se de estar em mode administrador)
 - rodar o comando expo start para rodar o app
 o projeto mobile pode ser aberto no browser do navegador, em um emulador, ou em seu próprio celular. 
