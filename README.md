@@ -16,7 +16,7 @@ A ideia da solução é que haja uma integração entre às duas plataformas, we
 [Node.js](https://nodejs.org/en/) e [MySQL](https://www.mysql.com) - Servidor; <br/>
 [ReactJs](https://pt-br.reactjs.org) - Web Site; <br/>
 [Expo-cli](https://docs.expo.io/workflow/expo-cli/) - App mobile; <br/>
-Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/).
+Para trabalhar com o código, é ideal um editor de texto. Minha sugestão -> [VSCode](https://code.visualstudio.com/). <br/>
 Quando abrir os projetos no editor de texto, deverá ser executado o comando "npm install"
 
 ### Rodando o Back End (servidor)
