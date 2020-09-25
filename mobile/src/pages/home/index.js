@@ -60,7 +60,6 @@ export default class HomePage extends Component {
     loadGames = async () => {
         await api.get('/games')
             .then(response => {
-                console.log(response.data)
                 this.setState({ games: response.data })
             }).catch(error => {
                 if (!error.response) {
@@ -111,7 +110,6 @@ export default class HomePage extends Component {
 
 
     render() {
-        console.log(this.state.platform)
 
         const { games, platform } = this.state
 

@@ -17,7 +17,6 @@ export const Text_Medium = styled.Text`
     font-size:20px;
 `
 
-
 export const Button_Previous = styled.TouchableOpacity`
     flex-direction: row;
 `
