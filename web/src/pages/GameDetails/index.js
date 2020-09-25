@@ -10,11 +10,7 @@ import Header from '../header'
 
 import api from '../../services/api'
 
-// export default function GameDetails() {
 export default class GameDetails extends Component {
-
-
-    // const [game, setGame] = useState([])
 
     constructor() {
         super()
@@ -22,18 +18,6 @@ export default class GameDetails extends Component {
             game: []
         }
     }
-
-    // const useEffect(() => {
-    //     async function loadGameInfo() {
-    //         const response = await api.get('/games/id/1')
-    //         setGame(response.data)
-    //         console.log(response.data)
-
-    //     }
-
-    //     loadGameInfo()
-
-    // }, [])
 
     componentDidMount() {
         this.loadGameInfo()
@@ -46,9 +30,8 @@ export default class GameDetails extends Component {
 
         const response = await api.get(`/games/id/${id}`)
         this.setState({ game: response.data })
-        console.log(response.data)
-        console.log(response.data.lojas)
     }
+    
 
     addZeros = (num) => {
         let addZeros = num.toFixed(Math.max(((num + '').split(".")[1] || "").length, 2));
@@ -135,23 +118,6 @@ export default class GameDetails extends Component {
                                                         <h4>{info.lojas.replace("/", " | ")}</h4>
                                                     </a>
                                                 </li>
-
-                                                <li id="address">
-                                                    Endereço: Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030
-                                                </li>
-
-
-                                                {/* <li className="row"> 
-                                                <MdPlace color="#c95050" size={30} />
-                                                <a href="#">
-                                                    <h4>Loja Tamboré</h4>
-                                                </a>
-                                            </li>
-
-                                            <li id="address">
-                                                Endereço: Av. Piracema, 669 - Tamboré, Barueri - SP, 06460-030
-                                            </li>
-                                            */}
                                             </ul>
                                         ))}
 

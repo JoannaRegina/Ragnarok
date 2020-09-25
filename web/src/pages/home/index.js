@@ -22,6 +22,7 @@ export default class Home extends Component {
             error: false
         }
 
+        
         this.handleChange = this.handleChange.bind(this);
     }
 
